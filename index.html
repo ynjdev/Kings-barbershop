@@ -363,11 +363,17 @@ var WA_NUMBER = "27000000000"; // placeholder — swap for Jermaine's real Whats
 function waLink(text){ return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text); }
 
 // preloader
+function hidePreloader(){
+  var p=document.getElementById('preloader');
+  if(!p || p.dataset.hidden) return;
+  p.dataset.hidden="1";
+  p.classList.add('hide');
+  setTimeout(function(){p.style.display='none'},600);
+}
 window.addEventListener('load',function(){
-  document.getElementById('preloader').classList.add('hide');
-  setTimeout(function(){document.getElementById('preloader').style.display='none'},600);
+  setTimeout(hidePreloader,1600);
 });
-setTimeout(function(){var p=document.getElementById('preloader');if(p)p.classList.add('hide')},900);
+setTimeout(hidePreloader,2400); // fallback if load never fires
 
 // scroll reveal
 var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
