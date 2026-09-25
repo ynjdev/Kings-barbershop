@@ -1,4 +1,4 @@
-/* Kings Barbershop — shared styles for every page */
+/* Kings Barbershop: shared styles for every page */
 :root{--ink:#0D0D0D;--ink-2:#161514;--line:#2A2622;--gold:#D9A441;--gold-2:#B8912F;--paper:#F5F1E8;--mute:#A9A197;--wa:#25D366;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}

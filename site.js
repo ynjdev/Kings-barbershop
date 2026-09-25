@@ -1,4 +1,4 @@
-/* Kings Barbershop — shared script for every page */
+/* Kings Barbershop: shared script for every page */
 
 /* ===== SETTINGS: change these, every page updates ===== */
 var KINGS = {
