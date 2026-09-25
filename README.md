@@ -1,33 +1,54 @@
 # Kings Barbershop
 
-Static one-page site for Kings Barbershop (Johannesburg). No build step. Vercel serves the files as they are.
+Static 4-page site for Kings Barbershop (Johannesburg). No build step. Vercel serves the files as they are.
 
-## Files
+## Pages
+
+| File | Live address | What's on it |
+|---|---|---|
+| index.html | / | Loading screen, hero, story, 4 featured services, before/after, reviews, booking |
+| services.html | /services | Barber filter, services grid, full price list + calculator, Pay per visit / Standing Chair |
+| barbers.html | /barbers | Team cards, shop gallery, what to expect, booking |
+| visit.html | /visit | Booking buttons, address + hours, FAQ |
+
+`vercel.json` gives the pages clean addresses (`/services` instead of `/services.html`).
+
+## Shared files
 
 | File | What it does |
 |---|---|
-| index.html | The whole site |
-| og-image.jpg | The picture WhatsApp, Facebook and Instagram show when someone shares the link |
-| favicon.svg, favicon.ico | Browser tab icon |
-| apple-touch-icon.png | Icon when someone saves the site to their phone's home screen |
-| robots.txt, sitemap.xml | Tell Google the site exists and can be indexed |
+| styles.css | All the styling, used by every page |
+| site.js | All the behaviour (booking links, menu, calculator, loading screen), used by every page |
+| og-image.jpg | The picture WhatsApp, Facebook and Instagram show when someone shares a link |
+| favicon.svg, favicon.ico, apple-touch-icon.png | Browser tab and phone home-screen icons |
+| robots.txt, sitemap.xml | Tell Google the pages exist and can be indexed |
+
+## Settings: one place
+
+Open `site.js`. The SETTINGS block at the top controls every page:
+
+- `WA_NUMBER`: Jermaine's WhatsApp Business number, digits only, starting 27
+- `FRESHA_URL`: Kings' Fresha booking page link
+- `GA_ID`: the Google Analytics measurement ID. Analytics stays off until this is a real ID.
+- `HOURS`: opening hours used for the "Next opening" text
+- `PRELOADER_MS`: how long the crest shows on the home page (3000 = 3 seconds)
+
+## Things that appear on more than one page
+
+- **Nav, phone menu and footer** are the same block on all 4 pages. Change one, change all four.
+- **Prices**: services.html (services grid and price list) and index.html (the 4 featured cards). Also `priceRange` in the JSON-LD block at the top of index.html.
+- **Opening hours**: visit.html (Find us), `HOURS` in site.js, and `openingHoursSpecification` in the JSON-LD block in index.html.
+- **Street address**: visit.html, plus `streetAddress` in the JSON-LD block in index.html.
+- **Social links**: the footer `href="#"` links on all 4 pages.
 
 ## Placeholders to swap before launch
 
-All in index.html unless noted.
-
-- `WA_NUMBER` (script near the bottom): Jermaine's WhatsApp Business number, digits only, starting 27
-- `FRESHA_URL` (script near the bottom): Kings' Fresha booking page link
-- `G-XXXXXXXXXX` (two places in the head): the Google Analytics measurement ID
-- Footer social links (`href="#"`): Instagram, TikTok, Facebook
-- Street address in the Find us section, plus `streetAddress` and `telephone` in the JSON-LD block in the head
-- Prices in the services grid, the price list and `priceRange` in the JSON-LD block
-- Standing Chair price (R650) and terms
+- The settings in site.js (above)
+- Street address, Google Maps link and social links
+- Prices, Standing Chair price (R650) and terms
+- Barber two and barber three names and bios
+- Photos (every grey block with a label)
 
 ## If the site gets its own domain
 
-Find and replace `kings-barbershop-six.vercel.app` with the new domain in index.html, robots.txt and sitemap.xml.
-
-## Opening hours
-
-Hours live in two places: the Find us section and the `HOURS` line in the script (it drives the "Next opening" text). Change both together, and the `openingHoursSpecification` in the JSON-LD block.
+Find and replace `kings-barbershop-six.vercel.app` with the new domain in all 4 pages, robots.txt and sitemap.xml.

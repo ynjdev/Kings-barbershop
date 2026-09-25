@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Services &amp; Prices | Kings Barbershop Johannesburg</title>
+<meta name="description" content="Every Kings Barbershop price, listed upfront: signature cuts, skin fades, beard trims, hot towel shaves and kids' cuts. Build your visit and book on WhatsApp.">
+<meta name="theme-color" content="#0D0D0D">
+
+<!-- SITE URL: every "kings-barbershop-six.vercel.app" on this page (and in robots.txt + sitemap.xml) must change if the site moves to its own domain -->
+<link rel="canonical" href="https://kings-barbershop-six.vercel.app/services">
+
+<!-- Link previews (WhatsApp, Facebook, Instagram DMs, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kings Barbershop">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://kings-barbershop-six.vercel.app/services">
+<meta property="og:title" content="Services &amp; Prices · Kings Barbershop">
+<meta property="og:description" content="Every price listed upfront. Build your visit and send it straight to WhatsApp.">
+<meta property="og:image" content="https://kings-barbershop-six.vercel.app/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kings Barbershop gold crest with the line Walk in a subject. Walk out a king.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services &amp; Prices · Kings Barbershop">
+<meta name="twitter:description" content="Every price listed upfront. Build your visit and send it straight to WhatsApp.">
+<meta name="twitter:image" content="https://kings-barbershop-six.vercel.app/og-image.jpg">
+
+<!-- Icons -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Archivo:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="./" aria-label="Kings Barbershop home"><svg viewBox="0 0 400 520" aria-hidden="true"><path d="M60 60 H340 V290 Q340 400 200 452 Q60 400 60 290 Z" fill="none" stroke="#D9A441" stroke-width="16"/><polygon points="128,172 128,62 162,102 200,34 238,102 272,62 272,172" fill="#D9A441"/></svg>Kings</a>
+    <div class="nav-links"><a href="services" aria-current="page">Services &amp; Prices</a><a href="barbers">Barbers</a><a href="visit">Visit &amp; Book</a></div>
+    <a class="btn wa" href="#" data-wa>Book on WhatsApp</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</nav>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu-top">
+    <a class="brand" href="./" aria-label="Kings Barbershop home"><svg viewBox="0 0 400 520" aria-hidden="true"><path d="M60 60 H340 V290 Q340 400 200 452 Q60 400 60 290 Z" fill="none" stroke="#D9A441" stroke-width="16"/><polygon points="128,172 128,62 162,102 200,34 238,102 272,62 272,172" fill="#D9A441"/></svg>Kings</a>
+    <button class="menu-btn menu-close" type="button">Close</button>
+  </div>
+  <div class="menu-links">
+    <a href="./">Home</a>
+    <a href="services" aria-current="page">Services &amp; Prices</a>
+    <a href="barbers">Barbers</a>
+    <a href="visit">Visit &amp; Book</a>
+  </div>
+  <div class="menu-book">
+    <a class="btn wa" href="#" data-wa>Book on WhatsApp</a>
+    <a class="fresha" href="#" data-fresha>Book instantly on Fresha</a>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="kicker">Services &amp; prices</p>
+    <h1>Every price, upfront</h1>
+    <p>No quotes on request. Filter by barber, tick what you want, and send your visit straight to WhatsApp.</p>
+  </div>
+</header>
+
+<section id="services" class="reveal">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Services</p><h2>What we're known for</h2><p>Filter by barber to see who specialises in what.</p></div>
+
+    <div class="chips" id="barber-filter">
+      <button class="chip active" data-b="all" aria-pressed="true">All barbers</button>
+      <button class="chip" aria-pressed="false" data-b="jermaine">Jermaine</button>
+      <button class="chip" aria-pressed="false" data-b="two">Barber two</button>
+      <button class="chip" aria-pressed="false" data-b="three">Barber three</button>
+    </div>
+
+    <div class="svc-grid" id="svc-grid">
+      <div class="svc" data-b="jermaine"><div class="photo">Precision cut</div><h3>Signature Cut</h3><p>Consultation, cut, hot towel, styling</p><p class="rec">Recommended: Jermaine</p><div class="row"><span class="amt">R180</span><a class="btn sm wa" href="#" data-wa-service="Signature Cut" data-wa-price="R180">Book</a></div></div>
+      <div class="svc" data-b="jermaine"><div class="photo">Skin fade</div><h3>Skin Fade</h3><p>Bald fade, sharp lineup, clean finish</p><p class="rec">Recommended: Jermaine</p><div class="row"><span class="amt">R200</span><a class="btn sm wa" href="#" data-wa-service="Skin Fade" data-wa-price="R200">Book</a></div></div>
+      <div class="svc" data-b="three"><div class="photo">Cut and beard</div><h3>Cut &amp; Beard</h3><p>Full cut plus beard shape and oil</p><p class="rec">Recommended: Barber three</p><div class="row"><span class="amt">R260</span><a class="btn sm wa" href="#" data-wa-service="Cut & Beard" data-wa-price="R260">Book</a></div></div>
+      <div class="svc" data-b="two"><div class="photo">Hot towel shave</div><h3>Hot Towel Shave</h3><p>Steam, straight razor, balm finish</p><p class="rec">Recommended: Barber two</p><div class="row"><span class="amt">R170</span><a class="btn sm wa" href="#" data-wa-service="Hot Towel Shave" data-wa-price="R170">Book</a></div></div>
+    </div>
+
+    <div class="head" style="margin-top:56px;margin-bottom:20px">
+      <p class="kicker">Build your visit</p><h2 style="font-size:clamp(24px,3.4vw,32px)">Every cut, every price</h2><p>Tick what you want — total updates live, then send it straight to WhatsApp.</p>
+    </div>
+    <div class="price-list" id="price-list">
+      <label class="price"><input type="checkbox" data-name="Signature cut" data-price="180"><div><span class="name">Signature cut</span><span class="desc">Consultation, cut, hot towel, styling</span></div><div class="dots"></div><div class="amt">R180<small>45 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Skin fade" data-price="200"><div><span class="name">Skin fade</span><span class="desc">Bald fade, lineup, finish</span></div><div class="dots"></div><div class="amt">R200<small>50 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Cut & beard" data-price="260"><div><span class="name">Cut &amp; beard</span><span class="desc">Full cut plus beard shape and oil</span></div><div class="dots"></div><div class="amt">R260<small>60 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Hot towel shave" data-price="170"><div><span class="name">Hot towel shave</span><span class="desc">Steam, straight razor, balm</span></div><div class="dots"></div><div class="amt">R170<small>40 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Beard trim" data-price="110"><div><span class="name">Beard trim</span><span class="desc">Shape, line, condition</span></div><div class="dots"></div><div class="amt">R110<small>25 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Kids under 12" data-price="120"><div><span class="name">Kids under 12</span><span class="desc">Cut and lineup</span></div><div class="dots"></div><div class="amt">R120<small>30 min</small></div></label>
+      <label class="price"><input type="checkbox" data-name="Lineup only" data-price="70"><div><span class="name">Lineup only</span><span class="desc">Between-cut touch up</span></div><div class="dots"></div><div class="amt">R70<small>15 min</small></div></label>
+    </div>
+    <div class="calc-bar">
+      <div><span class="lbl">Your visit</span><span class="tot" id="calc-total">R0</span></div>
+      <a class="btn wa" id="calc-book" href="#">Send order on WhatsApp</a>
+    </div>
+    <div class="note">Placeholder pricing — Jermaine to confirm before this goes live.</div>
+  </div>
+</section>
+
+<section id="membership" class="reveal last">
+  <div class="wrap">
+    <div class="head"><p class="kicker">How you pay</p><h2>Pay per visit, or keep your chair</h2><p>Most clients pay per visit. If you come in every week, Standing Chair holds your slot with your barber.</p></div>
+    <div class="plans">
+      <article class="plan main">
+        <p class="plan-tag">Most clients start here</p>
+        <h3>Pay per visit</h3>
+        <p class="plan-price">From R70 <small>per service</small></p>
+        <ul class="plan-list">
+          <li>Any service from the price list, paid on the day</li>
+          <li>Any barber, any open slot</li>
+          <li>No sign-up and nothing to cancel</li>
+        </ul>
+        <div class="plan-cta">
+          <a class="btn wa" href="#" data-wa>Book on WhatsApp</a>
+          <a class="plan-link" href="#price-list">Build your visit</a>
+        </div>
+      </article>
+      <article class="plan alt">
+        <p class="plan-tag">For regulars</p>
+        <h3>Standing Chair</h3>
+        <p class="plan-price">R650 <small>per month</small></p>
+        <p class="plan-save">4 Signature Cuts a month, normally R720</p>
+        <ul class="plan-list">
+          <li>Same barber, same day and time every week</li>
+          <li>Free lineup between cuts</li>
+          <li>First pick of Thursday to Saturday slots</li>
+        </ul>
+        <details class="terms">
+          <summary>How it works</summary>
+          <ul>
+            <li>Your 4 cuts are for the calendar month and don't roll over.</li>
+            <li>If your slot day falls five times in a month, the fifth cut is at the normal price.</li>
+            <li>To move a slot, message us at least 4 hours before. Later than that, it counts as used.</li>
+            <li>One missed slot a month is on us. A second missed slot in the same month counts as a used cut.</li>
+            <li>If your barber is off, you rebook with him that week and keep the cut. You only move to another barber if you ask to.</li>
+            <li>No contract. Cancel any month and it ends when your paid month does.</li>
+          </ul>
+        </details>
+        <a class="btn ghost" href="#" data-wa="Hi Kings, I'd like to know more about Standing Chair membership.">Ask about Standing Chair</a>
+      </article>
+    </div>
+    <div class="note">Standing Chair price and terms are placeholders — Jermaine to confirm before this goes live.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="./" style="font-size:24px" aria-label="Kings Barbershop home"><svg viewBox="0 0 400 520" aria-hidden="true"><path d="M60 60 H340 V290 Q340 400 200 452 Q60 400 60 290 Z" fill="none" stroke="#D9A441" stroke-width="16"/><polygon points="128,172 128,62 162,102 200,34 238,102 272,62 272,172" fill="#D9A441"/></svg>Kings</a>
+      <div class="foot-social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a><a href="#" data-wa>WhatsApp</a><a href="#">Google Maps</a></div>
+    </div>
+    <div class="foot-pages"><a href="./">Home</a><a href="services">Services &amp; Prices</a><a href="barbers">Barbers</a><a href="visit">Visit &amp; Book</a></div>
+    <p class="fine">Kings Barbershop · Johannesburg<br>Site by Luminar Media — mockup v6 for review, September 2026</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <div class="info"><b>Next opening</b><span data-slot>—</span></div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a href="#" data-fresha style="color:var(--gold-2);font-size:12px;text-decoration:none;white-space:nowrap">Fresha</a>
+    <a class="btn wa" href="#" data-wa>Book on WhatsApp</a>
+  </div>
+</div>
+
+</body>
+</html>
