@@ -50,6 +50,10 @@ if (KINGS.GA_ID.indexOf("XXXX") === -1) {
     if (started || !ready || document.visibilityState !== "visible") return;
     started = true;
     p.classList.add("go"); // play the crest animation now, not in the background
+    // one shine sweeps across the crest once it has faded in
+    var sheen = document.getElementById("sheen-anim");
+    var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (sheen && sheen.beginElement && !still) setTimeout(function(){ sheen.beginElement(); }, 1100);
     // two animation frames = the browser has really painted (frames don't run while hidden)
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ setTimeout(hide, KINGS.PRELOADER_MS); }); });
   }

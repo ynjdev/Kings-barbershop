@@ -34,6 +34,10 @@ Open `site.js`. The SETTINGS block at the top controls every page:
 - `HOURS`: opening hours used for the "Next opening" text
 - `PRELOADER_MS`: how long the crest shows on the home page (3000 = 3 seconds)
 
+## Colours
+
+The copper rose gold lives at the top of `styles.css`: `--rose` for flat accents, `--rose-2` for small text, and `--metal` for the shiny gradient on buttons, prices and the wordmark. The crest's gradient is defined once at the top of each page (`id="rg"`), and the loading-screen shine is `id="rg-sheen"` in index.html.
+
 ## How booking works
 
 Every "Book" button leads to the booking builder on Visit & Book. Service cards and the Services price list send people there with their services already ticked (for example `visit?s=skin-fade#builder`).
