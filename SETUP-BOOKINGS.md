@@ -17,7 +17,7 @@ What you end up with:
    - Organization: your own is fine (you can transfer it to Jermaine later).
    - Name: `kings-barbershop`
    - Database password: press **Generate** and save it in your password manager. You won't need it day to day.
-   - Region: Supabase has no South African region. Pick **West Europe (London)** or **Central EU (Frankfurt)**. These are usually the fastest from Johannesburg.
+   - Region: Supabase has no South African region. Pick **West EU (Ireland)**, **West EU (London)** or **Central EU (Frankfurt)**. These are usually the fastest from Johannesburg.
    - Plan: **Free**.
 3. Wait about 2 minutes while it sets up.
 
@@ -47,10 +47,11 @@ Running `supabase/schema.sql` again later (for example after an update from Lumi
 1. In Supabase open **Authentication**, then **Users**, then **Add user**, then **Create new user**.
    - Email: the front desk's email. Password: a strong one. Tick **Auto Confirm User**.
 2. Click the new user and copy its **UID** (a long code like `8f1c…`).
-3. Open **SQL Editor** and run this, with the UID pasted in:
+3. Open **SQL Editor** and run this. Swap `PASTE-THE-UID-HERE` for the UID and keep the quotes around it:
    ```sql
    insert into staff (user_id, name, role) values ('PASTE-THE-UID-HERE', 'Front desk', 'front_desk');
    ```
+   Filled in, it looks like `values ('8f1c2d3e-4b5a-6c7d-8e9f-0a1b2c3d4e5f', 'Front desk', 'front_desk')`.
    Do the same for Jermaine and yourself if you want logins, using `'admin'` as the role.
 4. Stop strangers from creating accounts: **Authentication**, then **Sign In / Providers**, then turn off **Allow new users to sign up**. Only people you add can log in, and only people in the `staff` table see any data.
 5. Open `https://kings-barbershop-six.vercel.app/admin` and sign in.

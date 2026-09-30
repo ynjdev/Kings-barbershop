@@ -7,8 +7,8 @@ var KINGS = {
   // The publishable (or legacy "anon") key is meant to sit in a website: the database rules decide what it can do.
   // Never put the secret or service_role key here.
   // While these are empty, the site books through WhatsApp only.
-  SUPABASE_URL: "",           // e.g. "https://abcdxyz.supabase.co"
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://oxsubhioinckhnhpriio.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_klCeJHJZLNovLHOfX1h9xw_ODdthNcB",
   GA_ID: "G-XXXXXXXXXX",      // Google Analytics measurement ID (analytics stays off until this is real)
   // Opening hours for the "Next opening" text when online booking is off: day: [opens, closes], 0 = Sunday.
   // Keep in step with the hours on the Visit & Book page.
