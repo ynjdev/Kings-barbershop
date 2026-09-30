@@ -370,3 +370,8 @@ section.last{border-bottom:0}
   .hero-video{object-position:65% center}
 }
 @media(prefers-reduced-motion:reduce){.photo>img{transition:none}.svc:hover .photo>img,.gallery .photo:hover>img{transform:none}}
+/* Before/after sample: one photo, the before side toned dull and grey */
+.ba .photo>img{object-position:50% 50%}
+.ba .before>img{filter:grayscale(.9) contrast(.82) brightness(.78)}
+.ba>.sample{z-index:2;bottom:10px;right:10px}
+@media(min-width:821px){.ba{height:440px}}

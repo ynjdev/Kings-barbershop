@@ -8,7 +8,7 @@ To switch the booking system on, follow **SETUP-BOOKINGS.md**. Until then the si
 
 | File | Live address | What's on it |
 |---|---|---|
-| index.html | / | Loading screen (his lion), hero with a looping video behind it, what Kings means, 4 featured services, before/after, reviews, booking |
+| index.html | / | Loading screen (his lion), hero with a looping video behind it, what Kings means, 4 featured services, before/after (sample), reviews, booking |
 | services.html | /services | Barber filter, services grid, full price list + calculator, Pay per visit / Standing Chair |
 | barbers.html | /barbers | Team cards, shop gallery, what to expect, booking |
 | visit.html | /visit | Booking: services, barber, open times, details, confirmation. Then address + hours, FAQ |
@@ -58,20 +58,21 @@ Everything follows Jermaine's logo.
 
 ## Photos and video
 
-The photos in `img/` are free stock photos from Pexels (free for commercial use, no credit needed). They're placeholders until Jermaine sends real ones, and each one carries a small "Sample photo" tag so nobody takes them for Kings' own work. The before/after slider and the barber cards stay empty on purpose: those have to be real Kings cuts and real Kings barbers.
+The photos in `img/` are free stock photos from Pexels (free for commercial use, no credit needed). They're placeholders until Jermaine sends real ones, and each one carries a small "Sample photo" tag so nobody takes them for Kings' own work. The barber cards stay empty on purpose: those have to be real Kings barbers. The before/after slider has a sample for now: one photo, with the Before side toned dull and grey by the page (`.ba .before>img` in styles.css), and the text above it says it's a sample.
 
 | Where | Files | Shows |
 |---|---|---|
 | Home: what Kings means | img/story-consult-480.webp, img/story-consult-800.webp | A consultation, which is what the copy next to it talks about |
 | Home and Services: service cards | img/svc-signature-cut-480.webp, img/svc-skin-fade-480.webp, img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (each also in a 960 size) | The cut, the fade, the beard and the hot towel |
 | Barbers: gallery | img/gal-chair-540.webp (big tile), img/gal-tools-420.webp, img/gal-razor-420.webp, img/gal-fade-420.webp, img/gal-pole-420.webp (each also in a bigger size) | The shop, the tools, the craft |
+| Home: before and after | img/ba-fade-800.webp, img/ba-fade-1400.webp | A finished fade. The same photo fills both sides |
 | Home: hero | img/hero-720.mp4, img/hero-480.mp4, img/hero-720.webm, img/hero-480.webm, img/hero-poster.webp | A straight razor, looping behind the headline |
 
 Every photo was cropped to its slot and toned to the same warm black-and-gold look, then saved as WebP in two sizes. The browser picks the size that fits the screen.
 
 **The hero video** is 7 seconds, silent and loops without a jump. Phones get the smaller file, computers the bigger one. It only starts once the page has loaded, so it never slows the first screen. People who have "reduce motion" or data saver switched on on their phone just see the still picture (`img/hero-poster.webp`). The WebM files are only for the few browsers that can't play MP4. A dark fade sits over the video (`.hero::after` in styles.css) so the headline and text stay easy to read.
 
-**Swapping in real photos:** crop the real photo to roughly the same shape, save it under the same file name (both sizes), and push. Nothing else needs to change. Then update the `alt` text in the HTML to describe the new photo, and once no stock photos are left, set `SAMPLE_PHOTOS` to `false` in site.js. For the video, replace all five hero files, or delete the `<video>` line in index.html to go back to the plain dark hero.
+**Swapping in real photos:** crop the real photo to roughly the same shape, save it under the same file name (both sizes), and push. Nothing else needs to change. Then update the `alt` text in the HTML to describe the new photo, and once no stock photos are left, set `SAMPLE_PHOTOS` to `false` in site.js. For the before/after, use two photos of the same client from the same angle: add the before photo as a new file, point the Before side's `<img>` at it, delete the `.ba .before>img` filter line in styles.css, and change the text above the slider. For the video, replace all five hero files, or delete the `<video>` line in index.html to go back to the plain dark hero.
 
 ## How booking works
 
