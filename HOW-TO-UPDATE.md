@@ -24,7 +24,7 @@ If you got a single `index.html`, drag it in and overwrite the old one.
 
 If you got a zip, open it, select every file inside, and drag them all into this folder. Overwrite when Windows asks. Don't drag the zip's own folder in, only the files.
 
-Some updates add brand-new files and folders (the booking system adds `booking.html`, `email-logo.png`, `SETUP-BOOKINGS.md`, `.vercelignore` and the `admin` and `supabase` folders). Drag the folders in too. `git add .` in step 3 picks everything up.
+Some updates add brand-new files and folders (the booking system adds `booking.html`, `email-logo.png`, `SETUP-BOOKINGS.md`, `.vercelignore` and the `admin` and `supabase` folders; the photos and hero video live in the `img` folder). Drag the folders in too. `git add .` in step 3 picks everything up.
 
 Windows hides files that start with a dot, like `.vercelignore`. It's in the zip; if you don't see it after dragging, turn on **View > Show > Hidden items** in File Explorer.
 

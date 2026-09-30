@@ -13,9 +13,14 @@ var KINGS = {
   // Opening hours for the "Next opening" text when online booking is off: day: [opens, closes], 0 = Sunday.
   // Keep in step with the hours on the Visit & Book page.
   HOURS: {0:[9,14], 1:[8,18], 2:[8,18], 3:[8,18], 4:[8,18], 5:[8,18], 6:[8,17]},
-  PRELOADER_MS: 3000          // how long the lion shows on the home page
+  PRELOADER_MS: 3000,         // how long the lion shows on the home page
+  // Stock photos show a small "Sample photo" tag. Swap in real Kings photos (same file names in img/),
+  // then set this to false to hide the tags.
+  SAMPLE_PHOTOS: true
 };
 /* ======================================================= */
+
+if (!KINGS.SAMPLE_PHOTOS) document.documentElement.classList.add("no-samples");
 
 var TZ = "Africa/Johannesburg";
 var ONLINE = !!(KINGS.SUPABASE_URL && KINGS.SUPABASE_ANON_KEY);
@@ -157,6 +162,25 @@ function hydratePrices(){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
+
+  /* hero video (home page): skipped for reduced motion and data saver, so only the still shows.
+     Loads after the page, so it never slows the first paint. Phones get the smaller file. */
+  var hv = $(".hero-video");
+  if (hv) {
+    var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches,
+        save = navigator.connection && navigator.connection.saveData;
+    if (!still && !save) {
+      var startVideo = function(){
+        hv.muted = true;
+        var size = innerWidth <= 820 ? "480" : "720",
+            mp4 = hv.canPlayType && hv.canPlayType('video/mp4; codecs="avc1.4D401F"');
+        hv.src = "img/hero-" + size + (mp4 || !hv.canPlayType ? ".mp4" : ".webm");   // WebM only for browsers without MP4
+        var p = hv.play && hv.play();
+        if (p && p.catch) p.catch(function(){});
+      };
+      if (document.readyState === "complete") startVideo(); else window.addEventListener("load", startVideo);
+    }
+  }
 
   /* scroll reveal */
   if ("IntersectionObserver" in window) {

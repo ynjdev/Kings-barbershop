@@ -8,7 +8,7 @@ To switch the booking system on, follow **SETUP-BOOKINGS.md**. Until then the si
 
 | File | Live address | What's on it |
 |---|---|---|
-| index.html | / | Loading screen (his lion), hero, what Kings means, 4 featured services, before/after, reviews, booking |
+| index.html | / | Loading screen (his lion), hero with a looping video behind it, what Kings means, 4 featured services, before/after, reviews, booking |
 | services.html | /services | Barber filter, services grid, full price list + calculator, Pay per visit / Standing Chair |
 | barbers.html | /barbers | Team cards, shop gallery, what to expect, booking |
 | visit.html | /visit | Booking: services, barber, open times, details, confirmation. Then address + hours, FAQ |
@@ -24,6 +24,7 @@ To switch the booking system on, follow **SETUP-BOOKINGS.md**. Until then the si
 | styles.css | All the styling, used by every page |
 | site.js | All the behaviour (online booking, booking links, menu, calculator, loading screen), used by every page |
 | admin/admin.js, admin/admin.css | The admin's behaviour and layout (it also uses styles.css and site.js) |
+| img/ | The photos and the hero video (see Photos and video below) |
 | email-logo.png | His logo at the top of booking emails |
 | og-image.jpg | The picture WhatsApp, Facebook and Instagram show when someone shares a link: his lion, the slogan and the name |
 | lion-96.webp, lion-480.webp, lion-900.webp | Jermaine's lion in three sizes. The small one is the nav/footer logo, the bigger two are for the loading screen (the browser picks the size that fits the screen) |
@@ -43,6 +44,7 @@ Open `site.js`. The SETTINGS block at the top controls every page:
 - `GA_ID`: the Google Analytics measurement ID. Analytics stays off until this is a real ID.
 - `HOURS`: opening hours used for the "Next opening" text while online booking is off (once it's on, "Next opening" shows the real next free time)
 - `PRELOADER_MS`: how long the lion shows on the home page (3000 = 3 seconds)
+- `SAMPLE_PHOTOS`: `true` shows a small "Sample photo" tag on the stock photos. Set it to `false` once every stock photo has been swapped for a real Kings one.
 
 ## Colours and lettering
 
@@ -53,6 +55,23 @@ Everything follows Jermaine's logo.
 - **The name** is written `KingS` in the HTML. Cinzel shows lowercase letters as small capitals, so it comes out exactly like his logo: big K, small ING, big S.
 - **The loading screen shine** is CSS (`#preloader .lion::after`). `site.js` adds the `shine` class once the lion has faded in.
 - **The full logo pack** (vector files, one-colour versions, social sizes) is separate from the site, in Kings-Logo-Pack-Gold.
+
+## Photos and video
+
+The photos in `img/` are free stock photos from Pexels (free for commercial use, no credit needed). They're placeholders until Jermaine sends real ones, and each one carries a small "Sample photo" tag so nobody takes them for Kings' own work. The before/after slider and the barber cards stay empty on purpose: those have to be real Kings cuts and real Kings barbers.
+
+| Where | Files | Shows |
+|---|---|---|
+| Home: what Kings means | img/story-consult-480.webp, img/story-consult-800.webp | A consultation, which is what the copy next to it talks about |
+| Home and Services: service cards | img/svc-signature-cut-480.webp, img/svc-skin-fade-480.webp, img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (each also in a 960 size) | The cut, the fade, the beard and the hot towel |
+| Barbers: gallery | img/gal-chair-540.webp (big tile), img/gal-tools-420.webp, img/gal-razor-420.webp, img/gal-fade-420.webp, img/gal-pole-420.webp (each also in a bigger size) | The shop, the tools, the craft |
+| Home: hero | img/hero-720.mp4, img/hero-480.mp4, img/hero-720.webm, img/hero-480.webm, img/hero-poster.webp | A straight razor, looping behind the headline |
+
+Every photo was cropped to its slot and toned to the same warm black-and-gold look, then saved as WebP in two sizes. The browser picks the size that fits the screen.
+
+**The hero video** is 7 seconds, silent and loops without a jump. Phones get the smaller file, computers the bigger one. It only starts once the page has loaded, so it never slows the first screen. People who have "reduce motion" or data saver switched on on their phone just see the still picture (`img/hero-poster.webp`). The WebM files are only for the few browsers that can't play MP4. A dark fade sits over the video (`.hero::after` in styles.css) so the headline and text stay easy to read.
+
+**Swapping in real photos:** crop the real photo to roughly the same shape, save it under the same file name (both sizes), and push. Nothing else needs to change. Then update the `alt` text in the HTML to describe the new photo, and once no stock photos are left, set `SAMPLE_PHOTOS` to `false` in site.js. For the video, replace all five hero files, or delete the `<video>` line in index.html to go back to the plain dark hero.
 
 ## How booking works
 
