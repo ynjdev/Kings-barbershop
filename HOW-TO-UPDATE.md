@@ -16,13 +16,17 @@ Check you're in the right spot:
 dir
 ```
 
-You should see `index.html`, `README.md`, `.gitignore` (plus `og-image.jpg`, the favicon files, `robots.txt` and `sitemap.xml` once you've added them). If you see a folder inside a folder, you're in the wrong place — go up or down a level and try again.
+You should see the 4 pages (`index.html`, `services.html`, `barbers.html`, `visit.html`), `styles.css`, `site.js`, the images and `README.md`. If you see a folder inside a folder, you're in the wrong place. Go up or down a level and try again.
 
 **2. Replace the files**
 
 If you got a single `index.html`, drag it in and overwrite the old one.
 
 If you got a zip, open it, select every file inside, and drag them all into this folder. Overwrite when Windows asks. Don't drag the zip's own folder in, only the files.
+
+Some updates add brand-new files and folders (the booking system adds `booking.html`, `email-logo.png`, `SETUP-BOOKINGS.md`, `.vercelignore` and the `admin` and `supabase` folders). Drag the folders in too. `git add .` in step 3 picks everything up.
+
+Windows hides files that start with a dot, like `.vercelignore`. It's in the zip; if you don't see it after dragging, turn on **View > Show > Hidden items** in File Explorer.
 
 **3. Push it**
 
@@ -54,13 +58,13 @@ To see the WhatsApp/Facebook link preview, click the deployment and open the **O
 
 | Command | What it means |
 |---|---|
-| `cd <folder>` | "Go into this folder" — everything after this runs *inside* that folder |
-| `dir` | "List what's in this folder" — use this to check you're in the right place |
+| `cd <folder>` | "Go into this folder": everything after this runs *inside* that folder |
+| `dir` | "List what's in this folder". Use this to check you're in the right place |
 | `git status` | "What's changed since my last save?" |
-| `git log --oneline` | "Show me the history of saves in this folder" — good for confirming it's the *right* repo |
-| `git add .` | "Stage everything I changed" — gets it ready to save |
-| `git commit -m "..."` | "Save this version" — the message is just a note to your future self |
-| `git push` | "Send my saved version to GitHub" — this is the step that actually updates the live site |
+| `git log --oneline` | "Show me the history of saves in this folder". Good for confirming it's the *right* repo |
+| `git add .` | "Stage everything I changed". Gets it ready to save |
+| `git commit -m "..."` | "Save this version". The message is just a note to your future self |
+| `git push` | "Send my saved version to GitHub". This is the step that actually updates the live site |
 | `git remote -v` | "What GitHub repo is this folder connected to?" |
 
 ---
@@ -69,6 +73,7 @@ To see the WhatsApp/Facebook link preview, click the deployment and open the **O
 
 - **Error mentions a file or project name you don't recognize** → you're in the wrong folder. Run `dir` and `git log --oneline` to check.
 - **"Everything up-to-date" but you know you changed something** → you're probably not actually in the folder with your changes. `dir` again.
-- **"not a git repository"** → you're outside the `kings-barbershop` folder — the one with the hidden `.git` folder in it.
+- **"not a git repository"** → you're outside the `kings-barbershop` folder, the one with the hidden `.git` folder in it.
 - **Vercel says "Stale"** → you're looking at an old deployment. Go back to the Deployments list and use the top row.
 - **Live site looks unchanged but Vercel shows Ready + blue Production** → your browser is showing a saved copy. Press Ctrl+F5.
+- **WhatsApp still shows the old link preview** → WhatsApp remembers previews for a while. To test the new one straight away, send the link with `?v=2` on the end (for example `kings-barbershop-six.vercel.app/?v=2`). For Facebook and Instagram, paste the link into developers.facebook.com/tools/debug and press **Scrape Again**.

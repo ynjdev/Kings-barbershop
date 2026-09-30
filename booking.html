@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your booking | Kings Barbershop</title>
+<meta name="description" content="View or cancel your Kings Barbershop booking.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0D0D0D">
+
+
+<!-- Link previews (WhatsApp, Facebook, Instagram DMs, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kings Barbershop">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://kings-barbershop-six.vercel.app/visit">
+<meta property="og:title" content="Visit &amp; Book · Kings Barbershop">
+<meta property="og:description" content="Pick your barber and an open time and you're booked, or send it on WhatsApp. Hours, address and FAQ.">
+<meta property="og:image" content="https://kings-barbershop-six.vercel.app/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kings Barbershop gold crowned lion logo with the line Walk in a subject. Walk out a king.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Visit &amp; Book · Kings Barbershop">
+<meta name="twitter:description" content="Pick your barber and an open time and you're booked, or send it on WhatsApp. Hours, address and FAQ.">
+<meta name="twitter:image" content="https://kings-barbershop-six.vercel.app/og-image.jpg">
+
+<!-- Icons -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Archivo:wght@400;500;600&amp;family=Cinzel:wght@600;700;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="./" aria-label="Kings Barbershop home"><img src="lion-96.webp" width="31" height="40" alt="">KingS</a>
+    <div class="nav-links"><a href="services">Services &amp; Prices</a><a href="barbers">Barbers</a><a href="visit">Visit &amp; Book</a></div>
+    <a class="btn" href="visit#builder">Book now</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</nav>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu-top">
+    <a class="brand" href="./" aria-label="Kings Barbershop home"><img src="lion-96.webp" width="31" height="40" alt="">KingS</a>
+    <button class="menu-btn menu-close" type="button">Close</button>
+  </div>
+  <div class="menu-links">
+    <a href="./">Home</a>
+    <a href="services">Services &amp; Prices</a>
+    <a href="barbers">Barbers</a>
+    <a href="visit">Visit &amp; Book</a>
+  </div>
+  <div class="menu-book">
+    <a class="btn" href="visit#builder">Book now</a>
+    <a class="menu-wa" href="#" data-wa>Or message us on WhatsApp</a>
+  </div>
+</div>
+
+<main class="manage">
+  <div class="wrap">
+    <p class="kicker">Your booking</p>
+    <div id="manage" aria-live="polite"><p class="state">Loading your booking…</p></div>
+    <template id="manage-tpl">
+      <div class="done">
+        <span class="status-tag"></span>
+        <h1 id="m-title"></h1>
+        <div class="done-card">
+          <div><span>When</span><b id="m-when"></b></div>
+          <div><span>Barber</span><b id="m-barber"></b></div>
+          <div><span>Services</span><b id="m-services"></b></div>
+          <div><span>Total</span><b id="m-total"></b></div>
+        </div>
+        <p class="hint" id="m-note"></p>
+        <div class="cta-row">
+          <a class="btn" id="m-new" href="visit#builder" hidden>Book a new time</a>
+          <a class="btn" id="m-cal" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+          <button class="btn ghost" id="m-cancel" type="button" hidden>Cancel booking</button>
+          <a class="btn wa" id="m-wa" href="#">WhatsApp us</a>
+        </div>
+      </div>
+    </template>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="./" style="font-size:24px" aria-label="Kings Barbershop home"><img src="lion-96.webp" width="31" height="40" alt="">KingS</a>
+      <div class="foot-social"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Facebook</a><a href="#" data-wa>WhatsApp</a><a href="#">Google Maps</a></div>
+    </div>
+    <div class="foot-pages"><a href="./">Home</a><a href="services">Services &amp; Prices</a><a href="barbers">Barbers</a><a href="visit">Visit &amp; Book</a></div>
+    <p class="fine">Kings Barbershop · Johannesburg<br>Site by Luminar Media · Mockup v8 for review, September 2026</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kings Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Archivo:wght@400;500;600&amp;family=Cinzel:wght@600;700;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/admin/admin.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js" defer></script>
+<script src="/site.js" defer></script>
+<script src="/admin/admin.js" defer></script>
+</head>
+<body class="admin">
+
+<!-- sign in -->
+<main id="login" class="login" hidden>
+  <form class="login-card" id="login-form">
+    <img src="/lion-96.webp" width="46" height="59" alt="">
+    <h1>Kings Admin</h1>
+    <p class="muted">Front desk sign in</p>
+    <label class="field"><span>Email</span><input id="l-email" type="email" autocomplete="username" required></label>
+    <label class="field"><span>Password</span><input id="l-pass" type="password" autocomplete="current-password" required></label>
+    <button class="btn" type="submit" id="l-go">Sign in</button>
+    <p class="a-err" id="l-err" hidden></p>
+  </form>
+</main>
+
+<p class="a-setup" id="setup" hidden>Online booking isn't connected yet. Add the Supabase URL and key in <code>site.js</code> (see SETUP-BOOKINGS.md), then reload.</p>
+
+<!-- the app -->
+<div id="app" hidden>
+  <header class="a-top">
+    <a class="brand" href="/admin"><img src="/lion-96.webp" width="31" height="40" alt="">KingS <span class="a-tag">Admin</span></a>
+    <nav class="a-tabs" aria-label="Admin sections">
+      <button type="button" data-tab="day" aria-current="page">Day</button>
+      <button type="button" data-tab="remind">Reminders</button>
+      <button type="button" data-tab="clients">Clients</button>
+      <button type="button" data-tab="settings">Settings</button>
+    </nav>
+    <button type="button" class="a-link" id="signout">Sign out</button>
+  </header>
+
+  <!-- DAY -->
+  <section class="a-sec" id="t-day">
+    <div class="a-bar">
+      <div class="a-date">
+        <button type="button" class="a-icon" id="d-prev" aria-label="Previous day">‹</button>
+        <input type="date" id="d-date" aria-label="Day">
+        <button type="button" class="a-icon" id="d-next" aria-label="Next day">›</button>
+        <button type="button" class="a-link" id="d-today">Today</button>
+      </div>
+      <div class="a-actions">
+        <button type="button" class="btn sm" id="d-new">New booking</button>
+        <button type="button" class="btn sm ghost" id="d-walkin">Walk-in</button>
+        <button type="button" class="btn sm ghost" id="d-block">Block time</button>
+      </div>
+    </div>
+    <p class="a-title" id="d-title"></p>
+    <div class="a-sum" id="d-sum"></div>
+    <div class="grid-wrap"><div class="grid" id="grid"></div></div>
+    <p class="muted small">Tap an empty spot to book it. Tap a booking to mark it done, move it or cancel it.</p>
+  </section>
+
+  <!-- REMINDERS -->
+  <section class="a-sec" id="t-remind" hidden>
+    <div class="a-bar">
+      <div class="a-date">
+        <button type="button" class="a-icon" id="r-prev" aria-label="Previous day">‹</button>
+        <input type="date" id="r-date" aria-label="Day to remind">
+        <button type="button" class="a-icon" id="r-next" aria-label="Next day">›</button>
+      </div>
+    </div>
+    <p class="a-title" id="r-title"></p>
+    <p class="a-sum" id="r-sum"></p>
+    <div class="list" id="r-list"></div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="a-sec" id="t-clients" hidden>
+    <div class="a-bar"><label class="field grow"><span class="sr">Search clients</span><input id="c-q" type="search" placeholder="Search by name or number"></label></div>
+    <div class="list" id="c-list"></div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="a-sec" id="t-settings" hidden>
+    <h2 class="a-h">Services and prices</h2>
+    <p class="muted small">Prices here are the prices on the website and in every new booking. Existing bookings keep the price they were booked at.</p>
+    <div class="table" id="s-services"></div>
+    <button type="button" class="btn sm ghost" id="s-add-service">Add a service</button>
+
+    <h2 class="a-h">Barbers and hours</h2>
+    <div id="s-barbers"></div>
+    <button type="button" class="btn sm ghost" id="s-add-barber">Add a barber</button>
+
+    <h2 class="a-h">Booking rules</h2>
+    <form class="rules" id="s-rules">
+      <label class="field"><span>Earliest online booking (minutes from now)</span><input type="number" min="0" step="15" name="lead_minutes"></label>
+      <label class="field"><span>Book up to (days ahead)</span><input type="number" min="1" max="120" name="window_days"></label>
+      <label class="field"><span>Clients can cancel online until (hours before)</span><input type="number" min="0" max="72" name="cancel_hours"></label>
+      <label class="field"><span>Upcoming online bookings per phone</span><input type="number" min="1" max="10" name="max_upcoming_per_phone"></label>
+      <label class="field"><span>Shop WhatsApp number</span><input type="tel" name="shop_whatsapp" placeholder="27821234567"></label>
+      <label class="check"><input type="checkbox" name="emails_on"><span>Automatic emails are switched on (only tick this once SETUP-BOOKINGS.md part 5 is done)</span></label>
+      <button class="btn sm" type="submit">Save rules</button>
+    </form>
+  </section>
+
+  <!-- dialogs -->
+  <dialog id="dlg-book" class="dlg">
+    <form method="dialog" id="f-book">
+      <h2 id="fb-title">New booking</h2>
+      <div class="fb-client">
+        <label class="field"><span>Client number</span><input id="fb-phone" type="tel" inputmode="tel" placeholder="082 123 4567" autocomplete="off"></label>
+        <label class="field"><span>Client name</span><input id="fb-name" autocomplete="off"></label>
+        <div class="suggest" id="fb-suggest" hidden></div>
+        <label class="field"><span>Email <small>optional</small></span><input id="fb-email" type="email" autocomplete="off"></label>
+      </div>
+      <fieldset class="fb-svcs"><legend>Services</legend><div id="fb-svcs"></div></fieldset>
+      <div class="row3">
+        <label class="field"><span>Barber</span><select id="fb-barber"></select></label>
+        <label class="field"><span>Date</span><input id="fb-date" type="date"></label>
+        <label class="field"><span>Time</span><select id="fb-time"></select></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>Booked by</span><select id="fb-source">
+          <option value="whatsapp">WhatsApp</option><option value="phone">Phone call</option><option value="walk_in">Walk-in</option><option value="front_desk">In person</option>
+        </select></label>
+        <label class="field"><span>Note <small>optional</small></span><input id="fb-note" maxlength="200"></label>
+      </div>
+      <p class="fb-total" id="fb-total"></p>
+      <p class="a-err" id="fb-err" hidden></p>
+      <div class="dlg-btns"><button type="button" class="btn ghost" value="cancel" data-close>Close</button><button type="button" class="btn" id="fb-save">Save booking</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-appt" class="dlg">
+    <div id="ap-body"></div>
+  </dialog>
+
+  <dialog id="dlg-block" class="dlg">
+    <form method="dialog" id="f-block">
+      <h2>Block time</h2>
+      <p class="muted small">For lunch, leave or anything that isn't a booking. Clients can't book over it.</p>
+      <div class="row3">
+        <label class="field"><span>Barber</span><select id="fk-barber"></select></label>
+        <label class="field"><span>From</span><select id="fk-from"></select></label>
+        <label class="field"><span>Until</span><select id="fk-to"></select></label>
+      </div>
+      <label class="field"><span>Date</span><input id="fk-date" type="date"></label>
+      <label class="field"><span>Reason <small>only staff see this</small></span><input id="fk-note" maxlength="80" placeholder="Lunch"></label>
+      <p class="a-err" id="fk-err" hidden></p>
+      <div class="dlg-btns"><button type="button" class="btn ghost" data-close>Close</button><button type="button" class="btn" id="fk-save">Block it</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-client" class="dlg"><div id="cl-body"></div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</div>
+</body>
+</html>

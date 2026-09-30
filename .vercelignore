@@ -1,0 +1,3 @@
+# not part of the website: database files and guides
+supabase
+*.md
