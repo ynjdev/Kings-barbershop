@@ -1,6 +1,6 @@
 # Kings Barbershop
 
-Static 4-page site for Kings Barbershop (Johannesburg), with its own booking system: clients book open times online, the front desk runs every booking from `/admin`, and a Supabase database (free) keeps it all. No build step. Vercel serves the files as they are.
+Static 5-page site for Kings Barbershop (Johannesburg), with its own booking system: clients book open times online, the front desk runs every booking from `/admin`, and a Supabase database (free) keeps it all. No build step. Vercel serves the files as they are.
 
 To switch the booking system on, follow **SETUP-BOOKINGS.md**. Until then the site books through WhatsApp.
 
@@ -8,10 +8,11 @@ To switch the booking system on, follow **SETUP-BOOKINGS.md**. Until then the si
 
 | File | Live address | What's on it |
 |---|---|---|
-| index.html | / | Loading screen (his lion), hero with a looping video behind it, what Kings means, 4 featured services, before/after (sample), reviews, booking |
+| index.html | / | Loading screen (his lion), hero with a looping razor video behind it (stock, tagged Sample), what Kings means, 4 featured services, before/after (a real Kings client), reviews, booking |
 | services.html | /services | Barber filter, services grid, full price list + calculator, Pay per visit / Standing Chair |
 | barbers.html | /barbers | Team cards, shop gallery, what to expect, booking |
-| visit.html | /visit | Booking: services, barber, open times, details, confirmation. Then address + hours, FAQ |
+| products.html | /products | The STMNT products Kings uses and sells: styling, beard and shave, wash. No prices, bought in store, with an "Ask if it's in stock" WhatsApp link on each |
+| visit.html | /visit | Booking: services, barber, open times, details, confirmation. Then the shopfront photo, address + hours, FAQ |
 | booking.html | /booking?t=... | The client's own booking: view it, add it to their calendar, cancel it (not indexed by Google) |
 | admin/ | /admin | The front desk admin: Day grid, Reminders, Clients, Settings (not indexed by Google) |
 
@@ -52,27 +53,41 @@ Everything follows Jermaine's logo.
 
 - **Gold** lives at the top of `styles.css`, taken from the lettering in his logo: `--gold` for accents, `--gold-2` for small text, `--metal` for the shiny gradient on buttons, prices and the name, and `--on-gold` for text sitting on gold.
 - **Lettering**: his logo is set in Cinzel, so the site uses Cinzel for the name in the nav, labels above headings, the nav links and the phone menu. All of that sits in one block at the bottom of `styles.css`. Headlines stay Cormorant italic and body text stays Archivo.
-- **The name** is written `KingS` in the HTML. Cinzel shows lowercase letters as small capitals, so it comes out exactly like his logo: big K, small ING, big S.
+- **The logo in the nav, phone menu and footer** follows the sign in the shop: his lion, then KINGS, then BARBERSHOP between two thin gold lines. The lines are drawn by CSS (`.brand-sub::before` and `::after` at the bottom of `styles.css`), so there's no extra image to load.
 - **The loading screen shine** is CSS (`#preloader .lion::after`). `site.js` adds the `shine` class once the lion has faded in.
 - **The full logo pack** (vector files, one-colour versions, social sizes) is separate from the site, in Kings-Logo-Pack-Gold.
 
 ## Photos and video
 
-The photos in `img/` are free stock photos from Pexels (free for commercial use, no credit needed). They're placeholders until Jermaine sends real ones, and each one carries a small "Sample photo" tag so nobody takes them for Kings' own work. The barber cards stay empty on purpose: those have to be real Kings barbers. The before/after slider has a sample for now: one photo, with the Before side toned dull and grey by the page (`.ba .before>img` in styles.css), and the text above it says it's a sample.
+Most of the photos are Kings' own, shot in the shop. A few spots still use free stock from Pexels (free for commercial use, no credit needed) until the right real shots exist: the **hero video** and the **Cut & Beard** and **Hot Towel Shave** cards. Each of those carries a small "Sample" tag so nobody takes them for Kings' own work. On the Barbers page, Jermaine and Barber two have their own portrait and action shot. Barber three has his portrait; his card has no action shot yet, so it simply stays on the portrait.
 
 | Where | Files | Shows |
 |---|---|---|
-| Home: what Kings means | img/story-consult-480.webp, img/story-consult-800.webp | A consultation, which is what the copy next to it talks about |
-| Home and Services: service cards | img/svc-signature-cut-480.webp, img/svc-skin-fade-480.webp, img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (each also in a 960 size) | The cut, the fade, the beard and the hot towel |
-| Barbers: gallery | img/gal-chair-540.webp (big tile), img/gal-tools-420.webp, img/gal-razor-420.webp, img/gal-fade-420.webp, img/gal-pole-420.webp (each also in a bigger size) | The shop, the tools, the craft |
-| Home: before and after | img/ba-fade-800.webp, img/ba-fade-1400.webp | A finished fade. The same photo fills both sides |
-| Home: hero | img/hero-720.mp4, img/hero-480.mp4, img/hero-720.webm, img/hero-480.webm, img/hero-poster.webp | A straight razor, looping behind the headline |
+| Home: hero (video) | img/hero-720.mp4, img/hero-720.webm (computers), img/hero-480.mp4, img/hero-480.webm (phones), img/hero-poster.webp | Stock, tagged Sample video. A straight razor, looping behind the headline |
+| Home: what Kings means | img/story-kings-480.webp, img/story-kings-800.webp | Barber two cutting in front of the gold lion wall |
+| Home and Services: Signature Cut card | img/svc-signature-cut-480.webp (+ 960) | Comb and scissors by the front window |
+| Home and Services: Skin Fade card | img/svc-skin-fade-480.webp (+ 960) | A trimmer lining up a skin fade behind the ear |
+| Home and Services: Cut & Beard, Hot Towel Shave cards | img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (+ 960) | Stock, tagged Sample |
+| Barbers: gallery | img/gal-team-540.webp (big tile), img/gal-reception-420.webp, img/gal-shelf-420.webp, img/gal-coffee-420.webp, img/gal-window-420.webp (each also in a bigger size) | Three barbers at work, the lion logo at reception, STMNT on the lit slat wall, the coffee bar, a cut by the front window |
+| Barbers: barber cards | img/barber-jermaine-420.webp + img/barber-jermaine-action-420.webp, img/barber-two-420.webp + img/barber-two-action-420.webp, img/barber-three-420.webp (each also in a 720 size) | A portrait on the slat wall that shows first, and an action shot that fades in on hover or tap (Barber three: portrait only for now) |
+| Home: before and after | img/ba-before-800.webp, img/ba-after-800.webp (each also in a 1280 size) | A real Kings client: in the chair with his hair long, then with the finished cut. Both photos are lined up on his head, so the slider's line sweeps across one face. The number plate outside is blurred |
+| Visit: Find us | img/visit-front-640.webp, img/visit-front-1100.webp | The shopfront from the car park: the gable with the lion sign and the wall sign, so people recognise the building. The neighbouring shop is cropped out and the number plate blurred |
 
-Every photo was cropped to its slot and toned to the same warm black-and-gold look, then saved as WebP in two sizes. The browser picks the size that fits the screen.
+Every photo was cropped to its spot, given a light warm tone so it sits well on the black site, and saved as WebP in two sizes. The browser picks the size that fits the screen. On phones the sign and the last gallery photo run full width so the whole KINGS name shows.
 
-**The hero video** is 7 seconds, silent and loops without a jump. Phones get the smaller file, computers the bigger one. It only starts once the page has loaded, so it never slows the first screen. People who have "reduce motion" or data saver switched on on their phone just see the still picture (`img/hero-poster.webp`). The WebM files are only for the few browsers that can't play MP4. A dark fade sits over the video (`.hero::after` in styles.css) so the headline and text stay easy to read.
+**The hero video** is the stock straight-razor clip: 7 seconds, silent, loops without a jump, mirrored so the razor sits in the empty right side. Computers get the 720 version, phones the 480. It only loads once the page has, so it never slows the first screen, and people with "reduce motion" or data saver on just see the still picture. The WebM files are only for the few browsers that can't play MP4. A dark fade over it (`.hero::after` in styles.css) keeps the headline readable.
 
-**Swapping in real photos:** crop the real photo to roughly the same shape, save it under the same file name (both sizes), and push. Nothing else needs to change. Then update the `alt` text in the HTML to describe the new photo, and once no stock photos are left, set `SAMPLE_PHOTOS` to `false` in site.js. For the before/after, use two photos of the same client from the same angle: add the before photo as a new file, point the Before side's `<img>` at it, delete the `.ba .before>img` filter line in styles.css, and change the text above the slider. For the video, replace all five hero files, or delete the `<video>` line in index.html to go back to the plain dark hero.
+A walk-through of the real shop is also cut and ready (wide and tall versions), held back for now. Luminar Media has it and can swap it in when Jermaine wants.
+
+**Products page:** the eleven product photos (two sizes each, for example img/prod-fiber-pomade-280.webp and img/prod-fiber-pomade-520.webp) are cut from the shelf photos taken in the shop. The header behind the title is the pomade shelf on computers (img/prod-head-900.webp, img/prod-head-1440.webp) and the whole shelf wall on phones (img/prod-head-tall-600.webp, img/prod-head-tall-800.webp). To add or drop a product, copy or delete one `<div class="prod">` block in products.html. Descriptions are in plain words, from what STMNT says each product does.
+
+**Still to shoot** (then they replace the stock):
+- A beard being shaped with clippers or a razor, for Cut & Beard
+- A hot towel on a client, for Hot Towel Shave
+- Barber three cutting someone's hair, for the action side of his card. Save it in both sizes, named like the other barbers' action shots, and add an action layer after his portrait the way the other two cards have one
+- Later: Barber two's and Barber three's real names and what they're known for. The placeholder names also sit in photo descriptions (`alt`) and the booking pages, so search the site for "Barber two" and "Barber three"
+
+**Swapping in a photo:** crop it to roughly the same shape, save it under the same file name (both sizes), update its `alt` text in the HTML, and delete the `<span class="sample">Sample photo</span>` next to it. Once no stock is left, `SAMPLE_PHOTOS` in site.js can go to `false`. For a new before/after, take both photos from the same spot and height, then save them as `ba-before` and `ba-after` in both sizes. Blur any number plates in shop photos before they go on the site. 
 
 ## How booking works
 
@@ -94,7 +109,7 @@ The other WhatsApp buttons ("Questions? WhatsApp us", footer, menu) open a plain
 
 ## Things that appear on more than one page
 
-- **Nav, phone menu and footer** are the same block on all 4 pages, including the logo (`lion-96.webp` + `KingS`). Change one, change all four.
+- **Nav, phone menu and footer** are the same block on all 5 pages (and the booking page), including the logo (`lion-96.webp` + KINGS / BARBERSHOP). Change one, change them all.
 - **Prices**: change them in the admin (Settings). Also update the fallback prices written in services.html, visit.html and index.html (shown when online booking is off, and read by Google), and `priceRange` in the JSON-LD block at the top of index.html.
 - **Opening hours**: visit.html (Find us), `HOURS` in site.js, and `openingHoursSpecification` in the JSON-LD block in index.html.
 - **Street address**: visit.html, plus `streetAddress` in the JSON-LD block in index.html.
