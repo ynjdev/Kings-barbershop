@@ -90,7 +90,7 @@ h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font
 .svc:hover .photo{filter:brightness(1.1)}
 .svc h3{margin:0 0 8px;font-size:19px;font-weight:500}
 .svc p{margin:0 0 6px;color:var(--mute);font-size:14px}
-.svc .rec{color:var(--gold-2);font-size:12px;letter-spacing:.04em;margin:0 0 14px}
+.svc>p:last-of-type{margin-bottom:14px}   /* room above the price row (barber recommendations removed 21 Oct) */
 .svc .row{display:flex;justify-content:space-between;align-items:center}
 .svc .amt{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:20px}
 
@@ -372,8 +372,9 @@ section.last{border-bottom:0}
 }
 @media(prefers-reduced-motion:reduce){.photo>img{transition:none}.svc:hover .photo>img,.gallery .photo:hover>img{transform:none}}
 /* Before/after: a real client, both photos aligned on his head so the line sweeps across one face */
-.ba .photo>img{object-position:50% 45%}
-@media(min-width:821px){.ba{height:440px}}
+.ba .photo>img{object-position:72% 45%}   /* phones see the middle two thirds: keep the head in view */
+.ba{height:auto;aspect-ratio:3/2;max-width:760px}   /* the before/after pair is 3:2: show all of it */
+@media(max-width:560px){.ba{aspect-ratio:auto;height:340px}}
 /* Phones: the sign and the last photo run full width, so the whole KINGS name shows and no tile sits alone */
 @media(max-width:760px){.gallery .photo:nth-child(2),.gallery .photo:nth-child(5){grid-column:span 2;height:210px}}
 

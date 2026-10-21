@@ -65,12 +65,12 @@ Most of the photos are Kings' own, shot in the shop. A few spots still use free 
 |---|---|---|
 | Home: hero (video) | img/hero-720.mp4, img/hero-720.webm (computers), img/hero-480.mp4, img/hero-480.webm (phones), img/hero-poster.webp | Stock, tagged Sample video. A straight razor, looping behind the headline |
 | Home: what Kings means | img/story-kings-480.webp, img/story-kings-800.webp | Barber two cutting in front of the gold lion wall |
-| Home and Services: Signature Cut card | img/svc-signature-cut-480.webp (+ 960) | Comb and scissors by the front window |
+| Home and Services: Signature Cut card | img/svc-signature-cut-480.webp (+ 960) | Jermaine styling a client by the front window, the Land Rover outside with its number plate blurred |
 | Home and Services: Skin Fade card | img/svc-skin-fade-480.webp (+ 960) | A trimmer lining up a skin fade behind the ear |
 | Home and Services: Cut & Beard, Hot Towel Shave cards | img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (+ 960) | Stock, tagged Sample |
-| Barbers: gallery | img/gal-team-540.webp (big tile), img/gal-reception-420.webp, img/gal-shelf-420.webp, img/gal-coffee-420.webp, img/gal-window-420.webp (each also in a bigger size) | Three barbers at work, the lion logo at reception, STMNT on the lit slat wall, the coffee bar, a cut by the front window |
+| Barbers: gallery | img/gal-team-540.webp (big tile), img/gal-reception-420.webp, img/gal-wash-420.webp, img/gal-coffee-420.webp, img/gal-window-420.webp (each also in a bigger size) | Three barbers at work, the lion logo at reception, Jermaine washing a client's hair at the basin, the coffee bar, a cut by the front window |
 | Barbers: barber cards | img/barber-jermaine-420.webp + img/barber-jermaine-action-420.webp, img/barber-two-420.webp + img/barber-two-action-420.webp, img/barber-three-420.webp (each also in a 720 size) | A portrait on the slat wall that shows first, and an action shot that fades in on hover or tap (Barber three: portrait only for now) |
-| Home: before and after | img/ba-before-800.webp, img/ba-after-800.webp (each also in a 1280 size) | A real Kings client: in the chair with his hair long, then with the finished cut. Both photos are lined up on his head, so the slider's line sweeps across one face. The number plate outside is blurred |
+| Home: before and after | img/ba-before-800.webp, img/ba-after-800.webp (each also in a 1200 size) | A real cut at Kings, shot from behind: the hair grown out over his star tattoo, then the finished fade. The before photo is turned and shifted so his ear, a mole and the star tattoo sit in the same place in both, so the slider's line sweeps across one head. Both are 3:2 |
 | Visit: Find us | img/visit-front-640.webp, img/visit-front-1100.webp | The shopfront from the car park: the gable with the lion sign and the wall sign, so people recognise the building. The neighbouring shop is cropped out and the number plate blurred |
 
 Every photo was cropped to its spot, given a light warm tone so it sits well on the black site, and saved as WebP in two sizes. The browser picks the size that fits the screen. On phones the sign and the last gallery photo run full width so the whole KINGS name shows.
@@ -79,7 +79,7 @@ Every photo was cropped to its spot, given a light warm tone so it sits well on 
 
 A walk-through of the real shop is also cut and ready (wide and tall versions), held back for now. Luminar Media has it and can swap it in when Jermaine wants.
 
-**Products page:** the eleven product photos (two sizes each, for example img/prod-fiber-pomade-280.webp and img/prod-fiber-pomade-520.webp) are cut from the shelf photos taken in the shop. The header behind the title is the pomade shelf on computers (img/prod-head-900.webp, img/prod-head-1440.webp) and the whole shelf wall on phones (img/prod-head-tall-600.webp, img/prod-head-tall-800.webp). To add or drop a product, copy or delete one `<div class="prod">` block in products.html. Descriptions are in plain words, from what STMNT says each product does.
+**Products page:** the sixteen product photos (two sizes each, for example img/prod-fiber-pomade-280.webp and img/prod-fiber-pomade-520.webp) are Kings' own: every product shot on its own against the lit slat wall in the shop. The header behind the title is the pomade shelf on computers (img/prod-head-900.webp, img/prod-head-1440.webp) and the whole shelf wall on phones (img/prod-head-tall-600.webp, img/prod-head-tall-800.webp). To add or drop a product, copy or delete one `<div class="prod">` block in products.html. Descriptions are in plain words, from what STMNT says each product does.
 
 **Still to shoot** (then they replace the stock):
 - A beard being shaped with clippers or a razor, for Cut & Beard
@@ -87,7 +87,7 @@ A walk-through of the real shop is also cut and ready (wide and tall versions), 
 - Barber three cutting someone's hair, for the action side of his card. Save it in both sizes, named like the other barbers' action shots, and add an action layer after his portrait the way the other two cards have one
 - Later: Barber two's and Barber three's real names and what they're known for. The placeholder names also sit in photo descriptions (`alt`) and the booking pages, so search the site for "Barber two" and "Barber three"
 
-**Swapping in a photo:** crop it to roughly the same shape, save it under the same file name (both sizes), update its `alt` text in the HTML, and delete the `<span class="sample">Sample photo</span>` next to it. Once no stock is left, `SAMPLE_PHOTOS` in site.js can go to `false`. For a new before/after, take both photos from the same spot and height, then save them as `ba-before` and `ba-after` in both sizes. Blur any number plates in shop photos before they go on the site. 
+**Swapping in a photo:** crop it to roughly the same shape, save it under the same file name (both sizes), update its `alt` text in the HTML, and delete the `<span class="sample">Sample photo</span>` next to it. Once no stock is left, `SAMPLE_PHOTOS` in site.js can go to `false`. For a new before/after, take both photos from the same spot and height, with the head turned the same way, then save them as `ba-before` and `ba-after` in both sizes (800 and 1200 wide, 3:2). Blur any number plates in shop photos before they go on the site. 
 
 ## How booking works
 
