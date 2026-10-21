@@ -59,7 +59,7 @@ Everything follows Jermaine's logo.
 
 ## Photos and video
 
-Most of the photos are Kings' own, shot in the shop. A few spots still use free stock from Pexels (free for commercial use, no credit needed) until the right real shots exist: the **hero video** and the **Cut & Beard** and **Hot Towel Shave** cards. Each of those carries a small "Sample" tag so nobody takes them for Kings' own work. On the Barbers page, Jermaine and Barber two have their own portrait and action shot. Barber three has his portrait; his card has no action shot yet, so it simply stays on the portrait.
+Most of the photos are Kings' own, shot in the shop. A few spots still use free stock from Pexels (free for commercial use, no credit needed) until the right real shots exist: the **hero video** and the **Cut & Beard** and **Hot Towel Shave** cards. Each of those carries a small "Sample" tag so nobody takes them for Kings' own work. On the Barbers page, Jermaine has a portrait and an action shot; Barber two and Barber three show their portrait only, so their cards simply stay on it.
 
 | Where | Files | Shows |
 |---|---|---|
@@ -69,7 +69,7 @@ Most of the photos are Kings' own, shot in the shop. A few spots still use free 
 | Home and Services: Skin Fade card | img/svc-skin-fade-480.webp (+ 960) | A trimmer lining up a skin fade behind the ear |
 | Home and Services: Cut & Beard, Hot Towel Shave cards | img/svc-cut-beard-480.webp, img/svc-hot-towel-480.webp (+ 960) | Stock, tagged Sample |
 | Barbers: gallery | img/gal-team-540.webp (big tile), img/gal-reception-420.webp, img/gal-wash-420.webp, img/gal-coffee-420.webp, img/gal-window-420.webp (each also in a bigger size) | Three barbers at work, the lion logo at reception, Jermaine washing a client's hair at the basin, the coffee bar, a cut by the front window |
-| Barbers: barber cards | img/barber-jermaine-420.webp + img/barber-jermaine-action-420.webp, img/barber-two-420.webp + img/barber-two-action-420.webp, img/barber-three-420.webp (each also in a 720 size) | A portrait on the slat wall that shows first, and an action shot that fades in on hover or tap (Barber three: portrait only for now) |
+| Barbers: barber cards | img/barber-jermaine-420.webp + img/barber-jermaine-action-420.webp, img/barber-two-420.webp, img/barber-three-420.webp (each also in a 720 size) | A portrait on the slat wall. Jermaine's card also has an action shot that fades in on hover or tap; Barber two and Barber three show their portrait only |
 | Home: before and after | img/ba-before-800.webp, img/ba-after-800.webp (each also in a 1200 size) | A real cut at Kings, shot from behind: the hair grown out over his star tattoo, then the finished fade. The before photo is turned and shifted so his ear, a mole and the star tattoo sit in the same place in both, so the slider's line sweeps across one head. Both are 3:2 |
 | Visit: Find us | img/visit-front-640.webp, img/visit-front-1100.webp | The shopfront from the car park: the gable with the lion sign and the wall sign, so people recognise the building. The neighbouring shop is cropped out and the number plate blurred |
 
@@ -84,7 +84,7 @@ A walk-through of the real shop is also cut and ready (wide and tall versions), 
 **Still to shoot** (then they replace the stock):
 - A beard being shaped with clippers or a razor, for Cut & Beard
 - A hot towel on a client, for Hot Towel Shave
-- Barber three cutting someone's hair, for the action side of his card. Save it in both sizes, named like the other barbers' action shots, and add an action layer after his portrait the way the other two cards have one
+- Barber two or Barber three cutting someone's hair, if you want their cards to have an action side like Jermaine's. Save it in both sizes, named like the other barbers' action shots, and add an action layer after his portrait the way Jermaine's card has one
 - Later: Barber two's and Barber three's real names and what they're known for. The placeholder names also sit in photo descriptions (`alt`) and the booking pages, so search the site for "Barber two" and "Barber three"
 
 **Swapping in a photo:** crop it to roughly the same shape, save it under the same file name (both sizes), update its `alt` text in the HTML, and delete the `<span class="sample">Sample photo</span>` next to it. Once no stock is left, `SAMPLE_PHOTOS` in site.js can go to `false`. For a new before/after, take both photos from the same spot and height, with the head turned the same way, then save them as `ba-before` and `ba-after` in both sizes (800 and 1200 wide, 3:2). Blur any number plates in shop photos before they go on the site. 
@@ -110,6 +110,7 @@ The other WhatsApp buttons ("Questions? WhatsApp us", footer, menu) open a plain
 ## Things that appear on more than one page
 
 - **Nav, phone menu and footer** are the same block on all 5 pages (and the booking page), including the logo (`lion-96.webp` + KINGS / BARBERSHOP). Change one, change them all.
+- **Next link**: each of the 5 pages ends, just above the footer, with a link to the next page in menu order: Home, Services & Prices, Barbers, Products, Visit & Book, then back to Home. It's the `<div class="next-page">` block. If you add, remove or reorder a page, update these links too.
 - **Prices**: change them in the admin (Settings). Also update the fallback prices written in services.html, visit.html and index.html (shown when online booking is off, and read by Google), and `priceRange` in the JSON-LD block at the top of index.html.
 - **Opening hours**: visit.html (Find us), `HOURS` in site.js, and `openingHoursSpecification` in the JSON-LD block in index.html.
 - **Street address**: visit.html, plus `streetAddress` in the JSON-LD block in index.html.
